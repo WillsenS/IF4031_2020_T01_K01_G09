@@ -127,7 +127,7 @@ int main(int argc, char **argv)
       return 1;
   }
 
-  const ev_uint16_t port = argv[0];
+  const ev_uint16_t port = (unsigned short) std::strtoul(argv[1], NULL, 0);
   const char *host = "0.0.0.0";
 
   base = event_base_new();
@@ -145,7 +145,7 @@ int main(int argc, char **argv)
   }
 
   // register catchall handler
-  evhttp_set_gencb(http, handle_file, argv[1]);
+  evhttp_set_gencb(http, handle_file, argv[2]);
 
   handle = evhttp_bind_socket_with_handle(http, host, port);
 
