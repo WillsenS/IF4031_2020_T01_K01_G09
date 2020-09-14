@@ -1,0 +1,3 @@
+/home/willsen/if4031_2020_t01_k01_g09/server_low/build/CMakeFiles/rebuild_cache.dir
+/home/willsen/if4031_2020_t01_k01_g09/server_low/build/CMakeFiles/edit_cache.dir
+/home/willsen/if4031_2020_t01_k01_g09/server_low/build/CMakeFiles/webserver.dir
