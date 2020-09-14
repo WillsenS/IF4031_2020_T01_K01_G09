@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 
 if (process.argv.length <= 2) {
-    console.log("Please provide PORT and FILE (example : 'node server_high.js 8080 dummy1.html')")
+    console.log("Please provide PORT and FILEPATH (example : 'node server_high.js 8080 dummy1.html')")
     return;
 }
 
