@@ -95,9 +95,11 @@ static void handle_file(struct evhttp_request *req, void *arg)
   char strpath[100];
   path = path.c_str();
   strcpy(strpath,&path[1]);
+  char fullpath[] = "../";
+  strcat(fullpath, strpath);
   std::cout << "path: " << strpath << std::endl;
   int fd = -1;
-  if ((fd = open(strpath, O_RDONLY)) < 0) {
+  if ((fd = open(fullpath, O_RDONLY)) < 0) {
     goto notFound;
   }
   struct stat st;
