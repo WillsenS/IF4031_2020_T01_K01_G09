@@ -1,1 +1,0 @@
-/usr/bin/c++   -Wall -Wextra -pedantic  -rdynamic CMakeFiles/webserver.dir/webserver.cpp.o  -o webserver   -L/usr/local/lib  -Wl,-rpath,/usr/local/lib -levent 

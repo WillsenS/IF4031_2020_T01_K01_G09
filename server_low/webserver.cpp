@@ -15,6 +15,7 @@
 
 #define UNUSED(expr) do { (void)(expr); } while (0)
 
+static char *filepath;
 
 enum class URI_TO_PATH_STATUS : std::int8_t {
   SUCCESS = 0,
@@ -93,7 +94,7 @@ static void handle_file(struct evhttp_request *req, void *arg)
   evb = evbuffer_new();
   char fullpath[] = "../";
   strcat(fullpath, filepath);
-  std::cout << "path: " << filepath << std::endl;
+  std::cout << "path: " << fullpath << std::endl;
   int fd = -1;
   if ((fd = open(fullpath, O_RDONLY)) < 0) {
     goto notFound;
@@ -125,7 +126,7 @@ int main(int argc, char **argv)
 
   const ev_uint16_t port = (unsigned short) std::strtoul(argv[1], NULL, 0);
   const char *host = "0.0.0.0";
-  static const char *filepath = argv[2];
+  filepath = argv[2];
 
   base = event_base_new();
 
