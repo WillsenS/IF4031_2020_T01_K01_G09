@@ -122,7 +122,12 @@ int main(int argc, char **argv)
   struct evhttp *http;
   struct evhttp_bound_socket *handle;
 
-  const ev_uint16_t port = 8080;
+  if (argc <= 1) {
+      std::cerr << "Please provide PORT and FILEPATH (example : './webserver 8080 dummy1.html')" << std::endl;
+      return 1;
+  }
+
+  const ev_uint16_t port = argv[0];
   const char *host = "0.0.0.0";
 
   base = event_base_new();
