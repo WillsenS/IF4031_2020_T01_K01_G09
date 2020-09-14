@@ -67,7 +67,7 @@ ab -n 10000 -c 10000 http://localhost/
 
 ![low_level_20kB_benchmark](images/low_level_20kB_memory.png)
 
-*Keterangan: Dapat dilihat dari gambar, concurrency level pada server yang menggunakan low level library 1000 pada file 500B dan 100 pada file 20kB, hal ini terjadi karena tidak dapatnya serveer menerima concurrent request sebesar 10000, sehingga harus dikurangi menjadi 1000 dan 100.*
+*Keterangan: Dapat dilihat dari gambar, concurrency level pada server yang menggunakan low level library 1000 pada file 500B dan 100 pada file 20kB, hal ini terjadi karena tidak dapatnya server menerima concurrent request sebesar 10000, sehingga harus dikurangi menjadi 1000 dan 100.*
 
 ## Web Server dengan High Level Library
 
