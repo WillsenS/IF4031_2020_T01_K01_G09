@@ -2,7 +2,28 @@
 
 ## Hasil Benchmark Web Server NGINX dan Apache 
 
-TBD
+### NGINX
+**File 500B**
+![nginx_500B_benchmark](images/nginx_500B_benchmark.png)
+
+![nginx_500B_benchmark](images/nginx_500B_memory.png)
+
+**File 20kB**
+![nginx_20kB_benchmark](images/nginx_20kB_benchmark.png)
+
+![nginx_20kB_benchmark](images/nginx_20kB_memory.png)
+
+### Apache
+
+**File 500B**
+![apache_500B_benchmark](images/apache_500B_benchmark.png)
+
+![apache_500B_benchmark](images/apache_500B_memory.png)
+
+**File 20kB**
+![apache_20kB_benchmark](images/apache_20kB_benchmark.png)
+
+![apache_20kB_benchmark](images/apache_20kB_memory.png)
 
 ## Web Server dengan Low Level Library
 
@@ -32,4 +53,13 @@ TBD
 
 ### Hasil Testing
 
-TBD
+**File 500B**
+![high_level_500B_benchmark](images/high_level_500B_benchmark.png)
+
+![high_level_500B_benchmark](images/high_level_500B_memory.png)
+
+**File 20kB**
+![high_level_20kB_benchmark](images/high_level_20kB_benchmark.png)
+
+![high_level_20kB_benchmark](images/high_level_20kB_memory.png)
+
