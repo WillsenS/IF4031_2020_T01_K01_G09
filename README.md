@@ -1,6 +1,23 @@
 # IF4031_2020_T01_K01_G09
 
 ## Hasil Benchmark Web Server NGINX dan Apache 
+### Tool benchmark yang digunakan
+Pada tugas ini, kelompok kami menggunakan Apache Benchmark. Tes dapat dilakukan dengan cara: 
+
+`
+ab -n [num_of_request] -c [num_of_concurrent_request] http://hostname[:port]/[path]
+`
+
+dengan:
+- `[num_of_request]` sebagai jumlah request yang diinginkan (pada testing kali ini, valuenya adalah 10000)
+- `[num_of_concurrent_request]` sebagai jumlah request yang dilakukan pada saat yang bersamaan (pada testing kali ini, valuenya adalah 10000)
+- `[:port]` adalah port dimana server berjalan.
+
+Sebagai contoh, untuk **nginx**, dilakukan testing dengan cara:
+
+`
+ab -n 10000 -c 10000 http://localhost/
+`
 
 ### NGINX
 **File 500B**
