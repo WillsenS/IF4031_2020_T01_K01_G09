@@ -80,19 +80,15 @@ static void handle_file(struct evhttp_request *req, void *arg)
     evhttp_send_error(req, HTTP_BADREQUEST, 0);
     return;
   }
-
-  std::cout << "GET " << uri << std::endl;
-
   auto result = uri_to_path(uri);
-
-  auto path = std::get<0>(result);
   auto status = std::get<1>(result);
 
   assert(status == URI_TO_PATH_STATUS::SUCCESS);
 
   struct evbuffer *evb = NULL;
   evb = evbuffer_new();
-  char fullpath[] = "../";
+  char fullpath[1000];
+  strcpy(fullpath,"../");
   strcat(fullpath, filepath);
   std::cout << "path: " << fullpath << std::endl;
   int fd = -1;
@@ -106,7 +102,6 @@ static void handle_file(struct evhttp_request *req, void *arg)
   evbuffer_add_file(evb, fd, 0, st.st_size);
   evhttp_send_reply(req, 200, "OK", evb);
   evbuffer_free(evb);
-
   notFound:
     evhttp_send_error(req, HTTP_NOTFOUND, 0);
 }
@@ -144,7 +139,6 @@ int main(int argc, char **argv)
 
   // register catchall handler
   evhttp_set_gencb(http, handle_file, argv[3]);
-
   handle = evhttp_bind_socket_with_handle(http, host, port);
 
   if (!handle) {
