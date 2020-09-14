@@ -89,15 +89,11 @@ static void handle_file(struct evhttp_request *req, void *arg)
 
   assert(status == URI_TO_PATH_STATUS::SUCCESS);
 
-  std::cout << "Got decoded path " << path << std::endl;
   struct evbuffer *evb = NULL;
   evb = evbuffer_new();
-  char strpath[100];
-  path = path.c_str();
-  strcpy(strpath,&path[1]);
   char fullpath[] = "../";
-  strcat(fullpath, strpath);
-  std::cout << "path: " << strpath << std::endl;
+  strcat(fullpath, filepath);
+  std::cout << "path: " << filepath << std::endl;
   int fd = -1;
   if ((fd = open(fullpath, O_RDONLY)) < 0) {
     goto notFound;
@@ -129,6 +125,7 @@ int main(int argc, char **argv)
 
   const ev_uint16_t port = (unsigned short) std::strtoul(argv[1], NULL, 0);
   const char *host = "0.0.0.0";
+  static const char *filepath = argv[2];
 
   base = event_base_new();
 
@@ -145,7 +142,7 @@ int main(int argc, char **argv)
   }
 
   // register catchall handler
-  evhttp_set_gencb(http, handle_file, argv[2]);
+  evhttp_set_gencb(http, handle_file, argv[3]);
 
   handle = evhttp_bind_socket_with_handle(http, host, port);
 
