@@ -40,7 +40,17 @@
 
 ### Hasil Testing
 
-TBD
+**File 500B**
+![low_level_500B_benchmark](images/low_level_500B_benchmark.png)
+
+![low_level_500B_benchmark](images/low_level_500B_memory.png)
+
+**File 20kB**
+![low_level_20kB_benchmark](images/low_level_20kB_benchmark.png)
+
+![low_level_20kB_benchmark](images/low_level_20kB_memory.png)
+
+*Keterangan: Dapat dilihat dari gambar, concurrency level pada server yang menggunakan low level library 1000 pada file 500B dan 100 pada file 20kB, hal ini terjadi karena tidak dapatnya serveer menerima concurrent request sebesar 10000, sehingga harus dikurangi menjadi 1000 dan 100.*
 
 ## Web Server dengan High Level Library
 
